@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="text-center">
+    <div style="font-size: 3rem; margin-bottom: 20px;">🏥</div>
+    <h1 class="display-4 mb-4 fw-bold">환영합니다! 👋</h1>
+    <p class="lead mb-4" style="font-size: 1.3rem; color: #666;">우리들의 건강을 지키는 5학년 보건수업 홈페이지입니다.</p>
+    <hr class="my-4" style="border: 2px solid #ff6b6b;">
+    
+    {% if not session.get('user') %}
+    <div class="alert alert-info mb-4" style="background: linear-gradient(90deg, #667eea, #764ba2); border: none; color: white; font-size: 1.1rem; border-radius: 15px;">
+        <p class="mb-0">🎉 <strong>로그인이나 회원가입을 하면 더 많은 기능을 사용할 수 있습니다!</strong></p>
+    </div>
+    {% endif %}
+    
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card mb-3 border-0 shadow" style="border-left: 5px solid #ff6b6b !important; transition: all 0.3s;" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 10px 25px rgba(0,0,0,0.2)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.1)'">
+                <div class="card-body">
+                    <h5 class="card-title" style="font-size: 1.5rem; color: #ff6b6b;">📢 오늘의 건강 소식</h5>
+                    <p class="card-text" style="font-size: 1.1rem; color: #555;">손 씻기는 가장 쉬운 질병 예방 방법입니다.</p>
+                    <a href="{{ url_for('board', board_type='notice') }}" class="btn btn-lg" style="background: linear-gradient(90deg, #ff6b6b, #ff8c42); color: white; border-radius: 10px; font-weight: bold;">공지사항 보기</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card mb-3 border-0 shadow" style="border-left: 5px solid #667eea !important; transition: all 0.3s;" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 10px 25px rgba(0,0,0,0.2)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.1)'">
+                <div class="card-body">
+                    <h5 class="card-title" style="font-size: 1.5rem; color: #667eea;">❓ 궁금한 점이 있나요?</h5>
+                    <p class="card-text" style="font-size: 1.1rem; color: #555;">보건 선생님께 무엇이든 물어보세요.</p>
+                    <a href="{{ url_for('board', board_type='qna') }}" class="btn btn-lg" style="background: linear-gradient(90deg, #667eea, #764ba2); color: white; border-radius: 10px; font-weight: bold;">질문하러 가기</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    {% if not session.get('user') %}
+    <div class="row mt-4">
+        <div class="col-md-6 offset-md-3">
+            <div style="background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%); border-radius: 15px; padding: 30px; text-align: center;">
+                <h3 style="color: #ff8c42; font-weight: bold; margin-bottom: 15px;">🚀 지금 바로 시작해보세요!</h3>
+                <p style="color: #555; margin-bottom: 20px; font-size: 1.1rem;">회원가입하고 보건수업에 참여해보세요.</p>
+                <a href="{{ url_for('signup') }}" class="btn btn-lg" style="background: linear-gradient(90deg, #ff8c42, #ffd93d); color: white; border-radius: 10px; font-weight: bold; margin-right: 10px;">📝 회원가입</a>
+                <a href="{{ url_for('login') }}" class="btn btn-lg" style="background: white; color: #ff8c42; border: 2px solid #ff8c42; border-radius: 10px; font-weight: bold;">🔐 로그인</a>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

@@ -1,0 +1,99 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="text-center">
+    <div style="font-size: 3rem; margin-bottom: 20px;">🏥</div>
+    <h1 class="display-4 mb-4 fw-bold">환영합니다! 👋</h1>
+    <p class="lead mb-4" style="font-size: 1.3rem; color: #666;">우리들의 건강을 지키는 5학년 보건수업 홈페이지입니다.</p>
+    <hr class="my-4" style="border: 2px solid #ff6b6b;">
+    
+    {% if not session.get('user_email') %}
+    <div class="alert alert-info mb-4" style="background: linear-gradient(90deg, #667eea, #764ba2); border: none; color: white; font-size: 1.1rem; border-radius: 15px;">
+        <p class="mb-0">🎉 <strong>로그인하고 보건수업에 참여하세요!</strong></p>
+    </div>
+    {% else %}
+    <div class="alert alert-success mb-4" style="background: linear-gradient(90deg, #11998e, #38ef7d); border: none; color: white; font-size: 1.1rem; border-radius: 15px;">
+        <p class="mb-0">✨ <strong>{{ session['user_name'] }}님 환영합니다! 건강한 생활을 응원합니다!</strong></p>
+    </div>
+    {% endif %}
+    
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card mb-3 border-0 shadow" style="border-left: 5px solid #ff6b6b !important; transition: all 0.3s;" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 10px 25px rgba(0,0,0,0.2)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.1)'">
+                <div class="card-body">
+                    <h5 class="card-title" style="font-size: 1.5rem; color: #ff6b6b;">📢 공지사항</h5>
+                    <p class="card-text" style="font-size: 1.1rem; color: #555;">선생님의 중요한 공지사항을 확인하세요. 건강 관련 소식과 학습 정보가 여기 있습니다!</p>
+                    <a href="{{ url_for('board', board_type='notice') }}" class="btn btn-lg" style="background: linear-gradient(90deg, #ff6b6b, #ff8c42); color: white; border-radius: 10px; font-weight: bold;">공지사항 보기</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card mb-3 border-0 shadow" style="border-left: 5px solid #667eea !important; transition: all 0.3s;" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 10px 25px rgba(0,0,0,0.2)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.1)'">
+                <div class="card-body">
+                    <h5 class="card-title" style="font-size: 1.5rem; color: #667eea;">❓ 질의응답</h5>
+                    <p class="card-text" style="font-size: 1.1rem; color: #555;">보건 선생님께 건강에 대해 물어보세요. 모든 질문을 환영합니다!</p>
+                    <a href="{{ url_for('board', board_type='qna') }}" class="btn btn-lg" style="background: linear-gradient(90deg, #667eea, #764ba2); color: white; border-radius: 10px; font-weight: bold;">질문하러 가기</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-4 mb-4">
+        <div class="col-md-4">
+            <div class="card border-0 shadow" style="border-top: 5px solid #11998e !important;">
+                <div class="card-body text-center">
+                    <div style="font-size: 2.5rem; margin-bottom: 10px;">🧼</div>
+                    <h5 class="card-title" style="color: #11998e; font-weight: bold;">손 씻기</h5>
+                    <p class="card-text" style="font-size: 0.95rem;">질병 예방의 첫 번째 단계는 깨끗한 손 씻기입니다!</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card border-0 shadow" style="border-top: 5px solid #ffa502 !important;">
+                <div class="card-body text-center">
+                    <div style="font-size: 2.5rem; margin-bottom: 10px;">🥗</div>
+                    <h5 class="card-title" style="color: #ffa502; font-weight: bold;">영양 관리</h5>
+                    <p class="card-text" style="font-size: 0.95rem;">균형 잡힌 식단은 건강한 성장의 기본입니다!</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card border-0 shadow" style="border-top: 5px solid #3498db !important;">
+                <div class="card-body text-center">
+                    <div style="font-size: 2.5rem; margin-bottom: 10px;">🏃</div>
+                    <h5 class="card-title" style="color: #3498db; font-weight: bold;">운동과 휴식</h5>
+                    <p class="card-text" style="font-size: 0.95rem;">적절한 운동과 휴식은 건강한 생활의 필수요소입니다!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    {% if not session.get('user_email') %}
+    <div class="row mt-4">
+        <div class="col-md-6 offset-md-3">
+            <div style="background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%); border-radius: 15px; padding: 30px; text-align: center;">
+                <h3 style="color: #ff8c42; font-weight: bold; margin-bottom: 15px;">🚀 지금 바로 시작해보세요!</h3>
+                <p style="color: #555; margin-bottom: 20px; font-size: 1.1rem;">로그인하고 보건수업에 더 적극적으로 참여해보세요!</p>
+                <a href="{{ url_for('signup') }}" class="btn btn-lg" style="background: linear-gradient(90deg, #ff8c42, #ffd93d); color: white; border-radius: 10px; font-weight: bold; margin-right: 10px;">📝 회원가입</a>
+                <a href="{{ url_for('login') }}" class="btn btn-lg" style="background: white; color: #ff8c42; border: 2px solid #ff8c42; border-radius: 10px; font-weight: bold;">🔐 로그인</a>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+
+    <div class="row mt-5">
+        <div class="col-12">
+            <div style="background: linear-gradient(135deg, #e0f7ff 0%, #d4f1f9 100%); border-radius: 15px; padding: 25px; border-left: 5px solid #3498db;">
+                <h4 style="color: #2c3e50; font-weight: bold; margin-bottom: 15px;">💡 건강 생활의 팁</h4>
+                <ul style="color: #555; font-size: 1rem; line-height: 1.8;">
+                    <li>매일 8시간 이상의 충분한 수면을 취하세요</li>
+                    <li>하루에 물을 6-8잔 마셔 수분을 유지하세요</li>
+                    <li>매일 30분 이상 운동하세요</li>
+                    <li>약 1시간마다 눈을 쉬게 해주세요</li>
+                    <li>스트레스를 풀기 위해 좋아하는 활동을 하세요</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
