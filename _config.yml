@@ -1,38 +1,5 @@
-# GitHub Pages Configuration
-# This repository contains a Flask web application
-# GitHub Pages Jekyll processing is completely disabled
+# This file intentionally left mostly empty
+# GitHub Pages will not process this repository
+# This is a Flask web application deployed separately
 
-# Disable Jekyll entirely
-skip_jekyll: true
-
-# Don't process any files
-markdown_ext: "markdown,mkdown,mkdn,mkd,md"
-markdown: CommonMark
-commonmark:
-  extensions:
-    - table
-    - strikethrough
-    - autolink
-    - tasklist
-
-# Exclude folders
-exclude:
-  - .git
-  - .github
-  - .gitignore
-  - venv
-  - env
-  - __pycache__
-  - '*.pyc'
-  - node_modules
-  - .env
-  - .env.*
-  - app.py
-  - requirements.txt
-  - Procfile
-  - wsgi.py
-
-# Build settings
-theme: null
-plugins: []
 
