@@ -6,6 +6,16 @@
 [![Flask 2.3](https://img.shields.io/badge/Flask-2.3-green)](https://flask.palletsprojects.com/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
+---
+
+## ⚠️ 중요: 이 프로젝트는 GitHub Pages가 아닌 다른 서비스에서 배포됩니다
+
+이 프로젝트는 **Flask 웹 애플리케이션**이므로:
+- ❌ GitHub Pages에서 직접 배포 불가능 (정적 사이트만 지원)
+- ✅ Heroku, Railway, PythonAnywhere 등에서 배포 필요
+
+**⚡ 빠른 배포**: [QUICK_FIX.md](QUICK_FIX.md) 또는 [DEPLOYMENT.md](DEPLOYMENT.md) 참조
+
 ## ✨ 주요 특징
 
 ### 👨‍👩‍👧‍👦 사용자 친화적 디자인
