@@ -3,10 +3,10 @@
 ## 🎯 해결된 문제들
 
 ### 1️⃣ 템플릿 렌더링 오류 (해결 ✅)
-**문제**: Jinja2 문법 (`{% if ... %}` 등)이 HTML 코드로 그대로 표시됨
+**문제**: Jinja2 문법 (코드 블록 처리)이 HTML 코드로 그대로 표시됨
 **원인**: Flask 앱이 템플릿을 제대로 렌더링하지 못함
 **해결**: 
-- base.html, index.html, login.html, signup.html의 Jinja2 문법 검증 완료
+- base.html, index.html, login.html, signup.html의 템플릿 문법 검증 완료
 - 템플릿 상속 구조 정상 확인
 - 현재는 Flask 앱 실행 시 정상 렌더링됨
 

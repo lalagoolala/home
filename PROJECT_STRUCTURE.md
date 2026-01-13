@@ -133,8 +133,8 @@ python app.py
 
 ### templates/*.html
 - 모든 페이지가 base.html을 상속
-- `{% extends 'base.html' %}` 사용
-- `{% block content %}...{% endblock %}` 내에 페이지별 컨텐츠
+- Flask 템플릿 상속 구조 사용
+- 각 페이지별 컨텐츠는 content 블록에 작성
 
 ## 🔧 개발 팁
 
